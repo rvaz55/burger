@@ -7,10 +7,13 @@
 
 <h2>LETS EAT SOME BURGERS!</h2>
 
-<ul>
+<h3 id="testColor">Available Burgers:</h3>
+<ul >
   {{#each burgers}}
 
-<li>burgers: {{burger_name}}</li>
+<li> {{burger_name}} <button class="devour-burger" id="devourBurger">Devour Burger!</button>
+ </li>
+ <br>
   {{/each}}
 </ul>
 <form class="create-form">
@@ -42,6 +45,24 @@
         location.reload();
       }
     );
+    })
+
+     $("#devourBurger").on("click", function(event){
+      event.preventDefault();
+      let id = $(this).data("id")
+      console.log(`this is the id: ${id}`)
+    
+        // Send the POST request.
+   // $.ajax(`/api/burgers/${id}`, {
+     // type: "PUT",
+   //   data: newBurger
+   // }).then(
+   //   function() {
+     //   console.log("created new burger");
+        // Reload the page to get the updated list
+       // location.reload();
+     // }
+   // );
     })
   
   });
