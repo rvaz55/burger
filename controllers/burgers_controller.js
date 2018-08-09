@@ -11,7 +11,7 @@ let burgers = require("../models/burger.js")
 //Then within the logic of each route, linking the route 
 //to trigger: 1)render the appropriate HandleBars HTML 
 //            2)appropriate SQL query
-router.get("/index", function(req, res){
+router.get("/", function(req, res){
     //Linking up the SQL query here 
     burgers.all(function(data){
         let hbsObject = {
