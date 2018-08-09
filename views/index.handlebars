@@ -1,0 +1,19 @@
+
+<!-- This file contains the HTML code that will go inside the 
+{{{body}}} in the 'main.handlebars'  file
+-->
+
+<h1>BURGERSSSSSSS!</h1>
+
+<h2>LETS EAT SOME BURGERS!</h2>
+
+<ul>
+  {{#each burgers}}
+
+<li>burgers: {{burger_name}}</li>
+  {{/each}}
+</ul>
+
+ <input type="text" id="burgerName" name="burgerName">
+<br>
+<button class="delete-cat" data-id="{{this.id}}">Make Burger!</button>
