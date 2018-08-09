@@ -17,8 +17,8 @@ router.get("/index", function(req, res){
         let hbsObject = {
             burgers: data
             };
-       console.log(hbsObject)
-        console.log(hbsObject.burgers[0].burger_name)
+       //console.log(hbsObject)
+        //console.log(hbsObject.burgers[0].burger_name)
         // console.log(hbsObject.burgers.burger_name)
         console.log("this was triggered in the burgers_controllers.js")
         ///Rendering the HanldeBarsHTML
