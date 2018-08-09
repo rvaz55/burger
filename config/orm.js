@@ -16,17 +16,29 @@ const orm = {
     });
     },
 
+    insertOne: function (sqlTableName, cols, vals, callbk){
+        var queryString = `INSERT INTO ${sqlTableName} ( ${cols[0]}) \n VALUES ('${vals}');`;
+        console.log(queryString);
+        console.log(`cols: ${cols[0]}`) ;
+         ;
+        console.log(`vals: ${vals}`) 
+
+        connection.query(queryString, vals, function(err, result) {
+            if (err) {
+              throw err;
+            }
+      
+            callbk(result);
+          });
+        
+    },
+
+    updateOne: function (newBurger , callbk){
+
+    },
+
 }
 
-// function selectAll(){
-//     console.log("this is the select all function")
-// };
-function insertOne(){
-   console.log("this is the insert one function")
-};
-function updateOne(){
-    console.log("this is the update one function")
-};
 
 //Setting the 'orm' object and it's methods as 'exportable'
 module.exports = orm

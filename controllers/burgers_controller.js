@@ -29,5 +29,22 @@ router.get("/index", function(req, res){
 
 })
 
+/////////////////////////////////////////////////////////
+router.post("/api/burgers", function(req, res){
+    //Linking up the SQL query here 
+    burgers.create([
+        "burger_name", 
+    ],
+    req.body.burger_name ,
+    function(result){
+        console.log("on the controllers.js file")
+        res.json({ id: result.insertId })
+        console.log("on the controllers.js file")
+        ;
+        });
+
+})
+
+
 // Export routes for server.js to use.
 module.exports = router;

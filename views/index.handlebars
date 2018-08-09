@@ -13,7 +13,36 @@
 <li>burgers: {{burger_name}}</li>
   {{/each}}
 </ul>
-
+<form class="create-form">
  <input type="text" id="burgerName" name="burgerName">
 <br>
-<button class="delete-cat" data-id="{{this.id}}">Make Burger!</button>
+<button class="make-burger" id="makeBurger">Make Burger!</button>
+</form>
+
+ <script>
+   //Code to capture/use inputs of the text box
+  $(function() {
+    console.log( "ready!" );
+
+    $("#makeBurger").on("click", function(event){
+      event.preventDefault();
+      var newBurger = {
+        burger_name: $("#burgerName").val().trim()
+       
+      }
+    
+        // Send the POST request.
+    $.ajax("/api/burgers", {
+      type: "POST",
+      data: newBurger
+    }).then(
+      function() {
+        console.log("created new burger");
+        // Reload the page to get the updated list
+        location.reload();
+      }
+    );
+    })
+  
+  });
+</script> 
