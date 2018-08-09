@@ -4,7 +4,7 @@ const bodyParser = require("body-parser");
 
 //Creating the instance of express and 
 //storing it in the app variable then naming the port
-const PORT = 3002;
+const PORT = process.env.PORT || 3000;
 const app = express();
 
 // Serve static content for the app from the "public" directory in the application directory.
