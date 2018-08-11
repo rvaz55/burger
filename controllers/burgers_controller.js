@@ -35,6 +35,7 @@ router.post("/api/burgers", function(req, res){
     
 burgers.create("burgers",req.body.burger_name,function(res){
     console.log("tdhdt")
+    console.log(req.body)
     cb(res)
 })
 
