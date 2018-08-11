@@ -35,7 +35,7 @@ router.post("/api/burgers", function(req, res){
 
 })
 /////////////////////////////////////////////////////////
-router.put("/api/burgers", burgerId, function(req, res){
+router.put("/api/burgers", function(req, res){
     //Linking up the SQL query here 
     //console.log(burgerId)
     
