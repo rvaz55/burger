@@ -40,12 +40,13 @@ router.put("/api/burgers/:id", function(req, res){
     
     const conditionSqlQuery = `id = ${req.params.id}`
     console.log(conditionSqlQuery)
-burgers.devourBurger("burgers",req.body.data,function(cb){
-    console.log("tdhdt")
-    console.log(req.body)
-    console.log(req.body.data)
-     res.json(cb)
-})
+
+// burgers.devourBurger("burgers",req.body.data,function(cb){
+//     console.log("tdhdt")
+//     console.log(req.body)
+//     console.log(req.body.data)
+//      res.json(cb)
+//         })
 
 })
 
