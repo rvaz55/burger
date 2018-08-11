@@ -32,8 +32,10 @@ router.get("/", function(req, res){
 /////////////////////////////////////////////////////////
 router.post("/api/burgers/", function(req, res){
     //Linking up the SQL query here 
-  
-burgers.create(function(data){})
+    console.log("this wrks")
+burgers.create(function(data){
+    console.log("tdhdt")
+})
 
 })
 
