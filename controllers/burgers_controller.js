@@ -33,7 +33,7 @@ router.get("/", function(req, res){
 router.post("/api/burgers", function(req, res){
     //Linking up the SQL query here 
     
-burgers.create("burgers",req.body.burger_name,function(cb){
+burgers.create("burgers",req.body.data,function(cb){
     console.log("tdhdt")
     console.log(req.body)
      res.json(cb)
