@@ -18,14 +18,17 @@ const orm = {
 
     insertOne: function (sqlTableName, cols, vals, callbk){
         
-      var queryString = `INSERT INTO ${sqlTableName} ( ${cols[0]}) \n VALUES ('${vals}');`;
-        console.log(queryString);
-        console.log(`cols: ${cols[0]}`) ;
+      var queryString = `INSERT INTO ${sqlTableName} ( ${cols}) \n VALUES ('${vals}');`;
+        console.log("im the orm", queryString);
+        console.log(`cols: ${cols}`) ;
          ;
         console.log(`vals: ${vals}`) 
 
         connection.query(queryString, vals, function(err, result) {
             if (err) {
+              console.log(queryString)
+              console.log(vals)
+          
               throw err;
             }
       

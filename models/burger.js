@@ -10,10 +10,11 @@ var burger = {
       });
     },
     create: function(cols, vals, cb) {
-        orm.insertOne("burgers", cols, vals, function(res) {
+        orm.insertOne("burgers", "burger_name", vals, function(res) {
             //parameters passed in 'orm.selectAll('param1', 'param2')
             //are used in the 'orm.js' file by the orm object
-          cb(res);
+          
+            cb(res);
         });
       }
 }

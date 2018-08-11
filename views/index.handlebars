@@ -28,17 +28,18 @@
     console.log( "ready!" );
 
     $("#makeBurger").on("click", function(event){
-      console.log("#1 works here ");
+      console.log("works here #1");
       event.preventDefault();
       var burger_name=  $("#burgerName").val().trim()
-      
+      console.log(burger_name)
     console.log("#2 works here ");
         // Send the POST request.
     $.ajax("/api/burgers", {
       type: "POST",
-      data: burger_name
+      data: {burger_name}
     }).then(
       function() {
+    
         console.log("created new burger")
         // Reload the page to get the updated list
         location.reload()
