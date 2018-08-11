@@ -30,18 +30,11 @@ router.get("/", function(req, res){
 })
 
 /////////////////////////////////////////////////////////
-router.post("/api/burgers", function(req, res){
+router.put("/api/burgers/:id", function(req, res){
     //Linking up the SQL query here 
-    burgers.create([
-        "burger_name", 
-    ],
-    req.body.burger_name ,
-    function(result){
-        console.log("on the controllers.js file")
-        res.json({ id: result.insertId })
-        console.log("on the controllers.js file")
-        ;
-        });
+  let id = req.params.id
+  console.log(`this is the id: ${id}`)
+  
 
 })
 

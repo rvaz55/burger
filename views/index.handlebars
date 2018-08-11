@@ -46,11 +46,18 @@
       }
     );
     })
-
+///////////////////////////////////////////////////////////////
+//This is code for the 'delete' button
+//
      $("#devourBurger").on("click", function(event){
       event.preventDefault();
-      let id = $(this).data("id")
-      console.log(`this is the id: ${id}`)
+
+
+      let iDD = $(this).data("id")
+      console.log(iDD)
+      console.log(`this is the id: ${iDD}`)
+
+      
     
         // Send the POST request.
    // $.ajax(`/api/burgers/${id}`, {
