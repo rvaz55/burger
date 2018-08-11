@@ -38,6 +38,22 @@ const orm = {
     },
 
     updateOne: function (newBurger , callbk){
+      var queryString = `DELETE FROM ${sqlTableName} ( ${cols}) \n VALUES ('${vals}');`;
+      console.log("im the orm", queryString);
+      console.log(`cols: ${cols}`) ;
+       ;
+      console.log(`vals: ${vals}`) 
+
+      connection.query(queryString, vals, function(err, result) {
+          if (err) {
+            console.log(queryString)
+            console.log(vals)
+        
+            throw err;
+          }
+    
+          callbk(result);
+        });
 
     },
 
