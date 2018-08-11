@@ -37,7 +37,7 @@ router.post("/api/burgers", function(req, res){
 /////////////////////////////////////////////////////////
 router.put("/api/burgers", burgerId, function(req, res){
     //Linking up the SQL query here 
-    console.log(burgerId)
+    //console.log(burgerId)
     
 burgers.devourBurger("burgers",req.body.data,function(cb){
     console.log("tdhdt")
