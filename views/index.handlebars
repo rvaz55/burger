@@ -58,7 +58,7 @@
 
     $.ajax(`/api/burgers/${burger_id}`, {
        type: "PUT",
-       data: [burger_id]
+       data: {burger_id}
        }).then(
        function() {
          console.log("devoured a burger");
