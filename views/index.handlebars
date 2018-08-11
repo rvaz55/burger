@@ -11,7 +11,7 @@
 <ul >
   {{#each burgers}}
 
-<li> {{burger_name}} <button class="devour-burger" id="devourBurger">Devour Burger!</button>
+<li> {{burger_name}} <button class="devour-burger" data-id="{{this.id}}" id="devourBurger">Devour Burger!</button>
  </li>
  <br>
   {{/each}}
@@ -52,14 +52,15 @@
      $(".devour-burger").on("click", function(event){
       event.preventDefault();
       console.log('"devour" button has been pressed')
-
+        let burger_id = $(this).attr("data-id")
         // Send the POST request.
-    $.ajax(`/api/burgers`, {
+        console.log(burger_id)
+    $.ajax(`/api/burgers/${burger_id}`, {
        type: "PUT",
        data: "newBurger"
        }).then(
        function() {
-         console.log("created new burger");
+         console.log("devoured a burger");
         // Reload the page to get the updated list
        location.reload();
       });
