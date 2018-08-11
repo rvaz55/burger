@@ -35,10 +35,11 @@ router.post("/api/burgers", function(req, res){
 
 })
 /////////////////////////////////////////////////////////
-router.put("/api/burgers", function(req, res){
+router.put("/api/burgers/:id", function(req, res){
     //Linking up the SQL query here 
-    //console.log(burgerId)
     
+    const conditionSqlQuery = `id = ${req.params.id}`
+    console.log(conditionSqlQuery)
 burgers.devourBurger("burgers",req.body.data,function(cb){
     console.log("tdhdt")
     console.log(req.body)
