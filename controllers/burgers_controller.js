@@ -30,7 +30,7 @@ router.get("/", function(req, res){
 })
 
 /////////////////////////////////////////////////////////
-router.post("/api/burgers/", function(req, res){
+router.post("/api/burgers", function(req, res){
     //Linking up the SQL query here 
     
 burgers.create("burgers",req.body.burger_name,function(res){
