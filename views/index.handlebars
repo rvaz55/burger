@@ -56,7 +56,7 @@
         // Send the POST request.
     $.ajax(`/api/burgers`, {
        type: "PUT",
-       data: newBurger
+       data: "newBurger"
        }).then(
        function() {
          console.log("created new burger");

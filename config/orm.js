@@ -17,7 +17,8 @@ const orm = {
     },
 
     insertOne: function (sqlTableName, cols, vals, callbk){
-        var queryString = `INSERT INTO ${sqlTableName} ( ${cols[0]}) \n VALUES ('${vals}');`;
+        
+      var queryString = `INSERT INTO ${sqlTableName} ( ${cols[0]}) \n VALUES ('${vals}');`;
         console.log(queryString);
         console.log(`cols: ${cols[0]}`) ;
          ;
