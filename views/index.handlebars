@@ -51,6 +51,7 @@
 //
      $("#devourBurger").on("click", function(event){
       event.preventDefault();
+      console.log('"devour" button has been pressed')
 
         // Send the POST request.
     $.ajax(`/api/burgers`, {
