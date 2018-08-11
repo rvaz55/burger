@@ -32,10 +32,9 @@
       event.preventDefault();
       var newBurger = {
         burger_name: $("#burgerName").val().trim()
-      
-       
       }
-    console.log("#3 works here ");
+
+    console.log("#2 works here ");
         // Send the POST request.
     $.ajax("/api/burgers", {
       type: "POST",
@@ -54,24 +53,16 @@
      $("#devourBurger").on("click", function(event){
       event.preventDefault();
 
-
-      let iDD = $(this).data("id")
-      console.log(iDD)
-      console.log(`this is the id: ${iDD}`)
-
-      
-    
         // Send the POST request.
-   // $.ajax(`/api/burgers/${id}`, {
-     // type: "PUT",
-   //   data: newBurger
-   // }).then(
-   //   function() {
-     //   console.log("created new burger");
+    $.ajax(`/api/burgers`, {
+       type: "PUT",
+       data: newBurger
+       }).then(
+       function() {
+         console.log("created new burger");
         // Reload the page to get the updated list
-       // location.reload();
-     // }
-   // );
+       location.reload();
+      });
     })
   
   });
