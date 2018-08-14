@@ -30,9 +30,22 @@ router.get("/", function(req, res){
 })
 
 /////////////////////////////////////////////////////////
+//This POSt handles the 'create burger' api req
 router.post("/api/burgers", function(req, res){
     //Linking up the SQL query here 
-
+    burgers.create(function(data){
+        let hbsObject = {
+            burgers: data
+            };
+       //console.log(hbsObject)
+        //console.log(hbsObject.burgers[0].burger_name)
+        // console.log(hbsObject.burgers.burger_name)
+        console.log("this was triggered in the burgers_controllers.js")
+        ///Rendering the HanldeBarsHTML
+        res.render('index', {
+            burgers: hbsObject.burgers
+            });
+        })
 })
 /////////////////////////////////////////////////////////
 router.put("/api/burgers/:id", function(req, res){

@@ -39,7 +39,6 @@
       data: {burger_name}
     }).then(
       function() {
-    
         console.log("created new burger")
         // Reload the page to get the updated list
         location.reload()
@@ -47,26 +46,10 @@
     );
     })
 ///////////////////////////////////////////////////////////////
-//This is code for the 'delete' button
+//This is code for the 'devour' button
 //
-     $(".devour-burger").on("click", function(event){
-      event.preventDefault();
-      console.log('"devour" button has been pressed')
-        let burger_id = $(this).attr("data-id")
-        // Send the POST request.
-        console.log(burger_id)
 
-    $.ajax(`/api/burgers/${burger_id}`, {
-       type: "PUT",
-       data: {burger_id}
-       }).then(
-       function() {
-         console.log("devoured a burger");
-         console.log()
-        // Reload the page to get the updated list
-       location.reload();
-      });
-    })
-  
+
+    
   });
 </script> 
