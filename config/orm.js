@@ -10,8 +10,7 @@ const orm = {
       if (err) {
         throw err;
       }
-      console.log(queryString)
-      console.log("coming from orm.js file")
+
       callbk(result);
     });
     },
@@ -19,19 +18,14 @@ const orm = {
     insertOne: function (sqlTableName, cols, vals, callbk){
         
       var queryString = `INSERT INTO ${sqlTableName} ( ${cols}) \n VALUES ('${vals}');`;
-        console.log("im the orm", queryString);
-        console.log(`cols: ${cols}`) ;
-         ;
-        console.log(`vals: ${vals}`) 
-
+      console.log("this is the qString" + queryString)
         connection.query(queryString, vals, function(err, result) {
             if (err) {
-              console.log(queryString)
-              console.log(vals)
+              
           
               throw err;
             }
-      
+            console.log(result);
             callbk(result);
           });
         
@@ -39,10 +33,7 @@ const orm = {
 
     updateOne: function (newBurger , callbk){
       var queryString = `DELETE FROM ${sqlTableName} ( ${cols}) \n VALUES ('${vals}');`;
-      console.log("im the orm", queryString);
-      console.log(`cols: ${cols}`) ;
-       ;
-      console.log(`vals: ${vals}`) 
+      
 
       connection.query(queryString, vals, function(err, result) {
           if (err) {

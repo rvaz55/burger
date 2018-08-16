@@ -17,10 +17,8 @@ router.get("/", function(req, res){
         let hbsObject = {
             burgers: data
             };
-       //console.log(hbsObject)
-        //console.log(hbsObject.burgers[0].burger_name)
-        // console.log(hbsObject.burgers.burger_name)
-        console.log("this was triggered in the burgers_controllers.js")
+            console.log(hbsObject.burgers)
+   
         ///Rendering the HanldeBarsHTML
         res.render('index', {
             burgers: hbsObject.burgers
@@ -32,15 +30,16 @@ router.get("/", function(req, res){
 /////////////////////////////////////////////////////////
 //This POSt handles the 'create burger' api req
 router.post("/api/burgers", function(req, res){
+    //The 'vals' below is being passed to the 'burgers.create(){};'
+    var vals = req.body.burger;
+    console.log(vals);
     //Linking up the SQL query here 
-    burgers.create(function(data){
+    burgers.create(vals, function(response){
+        console.log("this is the response: "+ response)
         let hbsObject = {
-            burgers: data
+            burgers: vals
             };
-       //console.log(hbsObject)
-        //console.log(hbsObject.burgers[0].burger_name)
-        // console.log(hbsObject.burgers.burger_name)
-        console.log("this was triggered in the burgers_controllers.js")
+            
         ///Rendering the HanldeBarsHTML
         res.render('index', {
             burgers: hbsObject.burgers
@@ -48,19 +47,15 @@ router.post("/api/burgers", function(req, res){
         })
 })
 /////////////////////////////////////////////////////////
+//This PUT handles the 'devour burger' api req
 router.put("/api/burgers/:id", function(req, res){
     //Linking up the SQL query here 
+    const condition = `id = ${req.params.id}`
+    console.log(`Controller: this is the burger id: ${condition}`)
+    console.log(`this is the req.body':`)
+    console.log(req.body)
+    console.log(req.body.burger)
     
-    const conditionSqlQuery = `id = ${req.params.id}`
-    console.log(conditionSqlQuery)
-
-// burgers.devourBurger("burgers",req.body.data,function(cb){
-//     console.log("tdhdt")
-//     console.log(req.body)
-//     console.log(req.body.data)
-//      res.json(cb)
-//         })
-
 })
 
 

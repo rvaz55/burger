@@ -9,8 +9,8 @@ var burger = {
         cb(res, console.log("this was triggered in the burger.js file in 'models' folder"));
       });
     },
-    create: function(cols, vals, cb) {
-        orm.insertOne("burgers", "burger_name", function(res) {
+    create: function(vals, cb) {
+        orm.insertOne("burgers","burger_name", vals, function(res) {
             //parameters passed in 'orm.selectAll('param1', 'param2')
             //are used in the 'orm.js' file by the orm object
           
