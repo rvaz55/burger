@@ -10,19 +10,21 @@
 <h3 id="testColor">Available Burgers:</h3>
 <ul >
   {{#each burgers}}
+    {{#unless devoured}}
 
 <li> {{burger_name}} <button class="devour-burger" data-id="{{this.id}}" data-devouredState="{{this.devoured}}" >Devour Burger!</button>
  </li>
  <br>
+ {{/unless}}
   {{/each}}
 </ul>
 
 <h3 id="testColor">Out-of-Stock Burgers:</h3>
 <ul >
-  {{#each VARPlaceHolderHere}}
+  {{#each burgers}}
   {{#if devoured}}
 
-<li> {{burger_name}} <button class="delete-burger" data-id="{{this.id}}" >Delete Burger!</button></li>
+<li> {{burger_name}} <button class="delete-burger" data-id="{{this.id}}" data-devouredState="{{this.devoured}}" >Delete Burger!</button></li>
  <br>
   {{/if}}
   {{/each}}
@@ -42,7 +44,7 @@
     $("#makeBurger").on("click", function(event){
       console.log("works here #1");
       event.preventDefault();
-      var burger_name=  $("#burgerName").val().trim()
+      const burger_name=  $("#burgerName").val().trim()
       console.log(burger_name)
     console.log("#2 works here ");
         // Send the POST request.
@@ -63,9 +65,9 @@
    $(".devour-burger").on("click", function(event){
       console.log("devour btn clicked");
       event.preventDefault();
-      var burger_id= $(this).data().id;
-      var devoured_state = 1 ;
-      var burgerInfo = {
+      const burger_id= $(this).data().id;
+      const devoured_state = 1 ;
+      const burgerInfo = {
         burgerID: burger_id,
         devouredState: devoured_state
       }
@@ -78,14 +80,23 @@
       data: { burger: burgerInfo }
     }).then(
       function() {
-        {{!-- console.log("created ahcoiahwochqowhc burger") --}}
+      console.log("created ahcoiahwochqowhc burger")
         // Reload the page to get the updated list
         location.reload()
         }
       );
     })
 
+///////////////////////////////////////////////////////////////
+//This is code for the 'DELETE' button
 
+  $(".delete-burger").on("click", function(event){
+      console.log("DELETEEEE btn clicked");
+      event.preventDefault();
+      const burger_id= $(this).data().id;
+      console.log(burger_id)
+
+  })
     
   });
 </script> 

@@ -19,8 +19,6 @@ const orm = {
         
       var queryString = `INSERT INTO ${sqlTableName} ( ${cols}) \n VALUES ('${vals}');`;
       console.log("this is the qString" + queryString)
-      console.log("type of below")
-      console.log(typeof devouredState)
         connection.query(queryString, vals, function(err, result) {
             if (err) {
               
