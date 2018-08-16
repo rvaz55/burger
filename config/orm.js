@@ -25,20 +25,21 @@ const orm = {
           
               throw err;
             }
-            console.log(result);
+            //console.log("this is the result: ")
+            //console.log(result);
             callbk(result);
           });
         
     },
 
-    updateOne: function (newBurger , callbk){
-      var queryString = `DELETE FROM ${sqlTableName} ( ${cols}) \n VALUES ('${vals}');`;
-      
+    updateOne: function (sqlTableName, devCol, idCol, burgerID, devouredState , callbk){
+      var queryString = `UPDATE ${sqlTableName} SET ${devCol} = ${devouredState} WHERE ${idCol} = ${burgerID}`;
+      console.log("from the orm.js:")
+      console.log(queryString)
 
-      connection.query(queryString, vals, function(err, result) {
+      connection.query(queryString, function(err, result) {
           if (err) {
             console.log(queryString)
-            console.log(vals)
         
             throw err;
           }

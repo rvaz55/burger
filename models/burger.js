@@ -17,8 +17,8 @@ var burger = {
             cb(res);
         });
       },
-      devourBurger: function(cols, vals, cb) {
-        orm.updateOne("burgers", "burger_name", vals, function(res) {
+      devourBurger: function(burgerID, devouredState, cb) {
+        orm.updateOne("burgers", "devoured","id", burgerID, devouredState, function(res) {
             //parameters passed in 'orm.selectAll('param1', 'param2')
             //are used in the 'orm.js' file by the orm object
           

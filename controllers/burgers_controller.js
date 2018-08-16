@@ -35,7 +35,8 @@ router.post("/api/burgers", function(req, res){
     console.log(vals);
     //Linking up the SQL query here 
     burgers.create(vals, function(response){
-        console.log("this is the response: "+ response)
+       // console.log("this is the response: ")
+        //console.log(response)
         let hbsObject = {
             burgers: vals
             };
@@ -50,11 +51,17 @@ router.post("/api/burgers", function(req, res){
 //This PUT handles the 'devour burger' api req
 router.put("/api/burgers/:id", function(req, res){
     //Linking up the SQL query here 
-    const condition = `id = ${req.params.id}`
-    console.log(`Controller: this is the burger id: ${condition}`)
-    console.log(`this is the req.body':`)
-    console.log(req.body)
-    console.log(req.body.burger)
+    const condition = `id = ${req.params.id}`;
+    console.log(`Controller: this is the burger id: ${condition}`);
+    const vals = req.body.burger
+    const burgerID = req.body.burger.burgerID
+    const devouredState = req.body.burger.devouredState
+
+    burgers.devourBurger(burgerID, devouredState, function(response){
+
+    })
+
+ 
     
 })
 
