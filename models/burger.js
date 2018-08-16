@@ -2,14 +2,14 @@
 var orm = require("../config/orm.js");
 
 var burger = {
-    all: function(cb) {
+    allBurgers: function(cb) {
       orm.selectAll("burgers", function(res) {
           //parameters passed in 'orm.selectAll('param1', 'param2')
           //are used in the 'orm.js' file by the orm object
         cb(res);
       });
     },
-    create: function(vals, cb) {
+    createBurger: function(vals, cb) {
         orm.insertOne("burgers","burger_name", vals, function(res) {
             //parameters passed in 'orm.selectAll('param1', 'param2')
             //are used in the 'orm.js' file by the orm object
@@ -24,7 +24,14 @@ var burger = {
           
             cb(res);
         });
-      }
+      },
+      deleteBurger: function(burgerID, cb) {
+        orm.deleteOne("burgers", "id", burgerID,function(res) {
+            //parameters passed in 'orm.selectAll('param1', 'param2')
+            //are used in the 'orm.js' file by the orm object
+          cb(res);
+        });
+      },
 }
 
 module.exports = burger;

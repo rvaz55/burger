@@ -13,7 +13,7 @@ let burgers = require("../models/burger.js")
 //            2)appropriate SQL query
 router.get("/", function(req, res){
     //Linking up the SQL query here 
-    burgers.all(function(data){
+    burgers.allBurgers(function(data){
         let hbsObject = {
             burgers: data
             };
@@ -33,7 +33,7 @@ router.post("/api/burgers", function(req, res){
     //The 'vals' below is being passed to the 'burgers.create(){};'
     var vals = req.body.burger;
     //Linking up the SQL query here 
-    burgers.create(vals, function(data){
+    burgers.createBurger(vals, function(data){
        // console.log("this is the response: ")
         //console.log(response)
         let hbsObject = {
@@ -50,14 +50,10 @@ router.post("/api/burgers", function(req, res){
 //This PUT handles the 'devour burger' api req
 router.put("/api/burgers/:id", function(req, res){
     //Linking up the SQL query here 
-    const condition = `id = ${req.params.id}`;
-    console.log(`Controller: this is the burger id: ${condition}`);
-    const vals = req.body
     const burgerID = req.body.burger.burgerID
     const devouredState = req.body.burger.devouredState
 
     burgers.devourBurger(burgerID, devouredState, function(data){
-
         let hbsObject = {
             burgers: data
             };
@@ -66,6 +62,27 @@ router.put("/api/burgers/:id", function(req, res){
             burgers: hbsObject.burgers
             });
     })   
+})
+
+/////////////////////////////////////////////////////////
+//This PUT handles the 'DELETE burger' api req
+router.put("/api/burgers/delete/:id", function(req, res){
+  
+    const burgerID = req.body.burgerID
+    
+    //console.log(`this is the id of burger selected:  ${burgerID}`)
+    burgers.deleteBurger(burgerID, function(data){
+
+        let hbsObject = {
+             burgers: data
+             };
+        ///Rendering the HanldeBarsHTML
+        res.render('index', {
+        burgers: hbsObject.burgers
+        });
+})
+
+
 })
 
 

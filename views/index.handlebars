@@ -39,10 +39,10 @@
  <script>
    //Code to capture/use inputs of the text box
   $(function() {
-    console.log( "ready!" );
+    //console.log( "ready!" );
 
     $("#makeBurger").on("click", function(event){
-      console.log("works here #1");
+      //console.log("works here #1");
       event.preventDefault();
       const burger_name=  $("#burgerName").val().trim()
         // Send the POST request.
@@ -54,7 +54,7 @@
       
         // Reload the page to get the updated list
         location.reload()
-          console.log("created new burger")
+          //console.log("created new burger")
       }
     );
     })
@@ -62,18 +62,18 @@
 //This is code for the 'devour' button
 
    $(".devour-burger").on("click", function(event){
-      console.log("devour btn clicked");
+
       event.preventDefault();
-      const burger_id= $(this).data().id;
-      const devoured_state = 1 ;
-      const burgerInfo = {
+      let burger_id= $(this).data().id;
+      let devoured_state = 1 ;
+      let burgerInfo = {
         burgerID: burger_id,
         devouredState: devoured_state
       }
-      console.log(`burgerID: ${burger_id}`)
-      console.log(`this is burgerInfo: ${burgerInfo}`)
+      //console.log(`burgerID: ${burger_id}`)
+      //console.log(`this is burgerInfo: ${burgerInfo}`)
   
-        // Send the POST request.
+        // Send the PUT request.
     $.ajax(`/api/burgers/${burger_id}`, {
       type: "PUT",
       data: { burger: burgerInfo }
@@ -82,7 +82,7 @@
       //console.log("created ahcoiahwochqowhc burger")
         // Reload the page to get the updated list
         location.reload()
-        console.log("end of the devour btn")
+        //console.log("end of the devour btn")
         }
       );
     })
@@ -93,8 +93,21 @@
   $(".delete-burger").on("click", function(event){
       console.log("DELETEEEE btn clicked");
       event.preventDefault();
-      const burger_id= $(this).data().id;
+      let burger_id= $(this).data().id;
       console.log(burger_id)
+
+    // Send the PUT request.
+    $.ajax(`/api/burgers/delete/${burger_id}`, {
+      type: "PUT",
+      data: { burgerID: burger_id }
+    }).then(
+      function() {
+      //console.log("created ahcoiahwochqowhc burger")
+        // Reload the page to get the updated list
+        location.reload()
+        //console.log("end of the devour btn")
+        }
+      );
 
   })
     
