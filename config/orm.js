@@ -19,6 +19,7 @@ const orm = {
         
       var queryString = `INSERT INTO ${sqlTableName} ( ${cols}) \n VALUES ('${vals}');`;
       console.log("this is the qString" + queryString)
+      console.log(vals)
         connection.query(queryString, vals, function(err, result) {
             if (err) {
               
@@ -40,9 +41,9 @@ const orm = {
 
       connection.query(queryString, function(err, result) {
           if (err) {
-            console.log(queryString)
+           // console.log(queryString)
         
-            throw err;
+            console.log(err) ;
           }
     
           callbk(result);

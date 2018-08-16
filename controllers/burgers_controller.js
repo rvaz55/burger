@@ -17,7 +17,7 @@ router.get("/", function(req, res){
         let hbsObject = {
             burgers: data
             };
-            console.log(hbsObject.burgers)
+           // console.log(hbsObject.burgers)
    
         ///Rendering the HanldeBarsHTML
         res.render('index', {
@@ -32,15 +32,14 @@ router.get("/", function(req, res){
 router.post("/api/burgers", function(req, res){
     //The 'vals' below is being passed to the 'burgers.create(){};'
     var vals = req.body.burger;
-    console.log(vals);
     //Linking up the SQL query here 
-    burgers.create(vals, function(response){
+    burgers.create(vals, function(data){
        // console.log("this is the response: ")
         //console.log(response)
         let hbsObject = {
-            burgers: vals
+            burgers: data
             };
-            
+           
         ///Rendering the HanldeBarsHTML
         res.render('index', {
             burgers: hbsObject.burgers
@@ -53,16 +52,20 @@ router.put("/api/burgers/:id", function(req, res){
     //Linking up the SQL query here 
     const condition = `id = ${req.params.id}`;
     console.log(`Controller: this is the burger id: ${condition}`);
-    const vals = req.body.burger
+    const vals = req.body
     const burgerID = req.body.burger.burgerID
     const devouredState = req.body.burger.devouredState
 
-    burgers.devourBurger(burgerID, devouredState, function(response){
+    burgers.devourBurger(burgerID, devouredState, function(data){
 
-    })
-
- 
-    
+        let hbsObject = {
+            burgers: data
+            };
+          ///Rendering the HanldeBarsHTML
+          res.render('index', {
+            burgers: hbsObject.burgers
+            });
+    })   
 })
 
 

@@ -45,17 +45,16 @@
       console.log("works here #1");
       event.preventDefault();
       const burger_name=  $("#burgerName").val().trim()
-      console.log(burger_name)
-    console.log("#2 works here ");
         // Send the POST request.
     $.ajax("/api/burgers", {
       type: "POST",
       data: { burger: burger_name }
     }).then(
       function() {
-        console.log("created new burger")
+      
         // Reload the page to get the updated list
         location.reload()
+          console.log("created new burger")
       }
     );
     })
@@ -80,9 +79,10 @@
       data: { burger: burgerInfo }
     }).then(
       function() {
-      console.log("created ahcoiahwochqowhc burger")
+      //console.log("created ahcoiahwochqowhc burger")
         // Reload the page to get the updated list
         location.reload()
+        console.log("end of the devour btn")
         }
       );
     })
