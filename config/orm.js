@@ -19,6 +19,8 @@ const orm = {
         
       var queryString = `INSERT INTO ${sqlTableName} ( ${cols}) \n VALUES ('${vals}');`;
       console.log("this is the qString" + queryString)
+      console.log("type of below")
+      console.log(typeof devouredState)
         connection.query(queryString, vals, function(err, result) {
             if (err) {
               
@@ -35,6 +37,7 @@ const orm = {
     updateOne: function (sqlTableName, devCol, idCol, burgerID, devouredState , callbk){
       var queryString = `UPDATE ${sqlTableName} SET ${devCol} = ${devouredState} WHERE ${idCol} = ${burgerID}`;
       console.log("from the orm.js:")
+    
       console.log(queryString)
 
       connection.query(queryString, function(err, result) {

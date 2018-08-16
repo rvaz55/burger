@@ -11,7 +11,7 @@
 <ul >
   {{#each burgers}}
 
-<li> {{burger_name}} <button class="devour-burger" data-id="{{this.id}}" >Devour Burger!</button>
+<li> {{burger_name}} <button class="devour-burger" data-id="{{this.id}}" data-devouredState="{{this.devoured}}" >Devour Burger!</button>
  </li>
  <br>
   {{/each}}
